@@ -69,8 +69,8 @@ router.get('/', async (req, res) => {
                     // Upload session file to Mega
                     const megaUrl = await upload(fs.createReadStream(`${dirs}/creds.json`), `${generateRandomId()}.json`);
 
-                    // Add "Ansar-MD-And-Drove-MD=" prefix to the session ID
-                    let stringSession = `Ansar-MD-And-Drove-Md=${megaUrl.replace('https://mega.nz/file/', '')}`;
+                    // Add "Ansar-MD=" prefix to the session ID
+                    let stringSession = `Ansar-MD=${megaUrl.replace('https://mega.nz/file/', '')}`;
 
                     // Send the session ID to the target number
                     const userJid = jidNormalizedUser(num + '@s.whatsapp.net');
@@ -78,7 +78,7 @@ router.get('/', async (req, res) => {
 
                     // Send confirmation message
                     await Um4r719.sendMessage(userJid, { 
-                        text: '*Hey Dear*\n\n*Don’t Share Your Session ID With Anyone*\n\n*This IS ANSAR MD AND DROVE MD*\n\n*THANKS FOR USING ANSAR MD BOT AND DROVE MD BOT*\n\n*CONNECT FOR UPDATES*: https://whatsapp.com/channel/0029ValASu1IN9ifummBKW1U\n\n*CONNECT*: https://whatsapp.com/channel/0029Vank3vaLikg5ldoNdd0U\n' 
+                        text: '*Hey Dear*\n\n*Don’t Share Your Session ID With Anyone*\n\n*This IS ANSAR MD*\n\n*THANKS FOR USING ANSAR MD BOT*\n\n*CONNECT FOR UPDATES*: https://whatsapp.com/channel/0029ValASu1IN9ifummBKW1U\n' 
                     });
 
                     // Clean up session after use
